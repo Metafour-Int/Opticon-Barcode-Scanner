@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
            id="com.metafour.barcode"
       version="0.0.1">
@@ -24,7 +23,7 @@
 			<uses-permission android:name="android.permission.RECEIVE_SCANNER" />
         </config-file>
         
-        <!-- source-file src="libs/com.oem.barcode.sdk.jar" target-dir="lib" /-->
+        <source-file src="libs/com.oem.barcode.sdk.jar" target-dir="lib" />
         
         <source-file src="lib/android/com/metafour/barcode/opticon/OpticonIntentHandler.java" target-dir="src/com/metafour/barcode/opticon" />
         <source-file src="lib/android/com/metafour/barcode/opticon/BarcodeScan.java" target-dir="src/com/metafour/barcode/opticon" />
