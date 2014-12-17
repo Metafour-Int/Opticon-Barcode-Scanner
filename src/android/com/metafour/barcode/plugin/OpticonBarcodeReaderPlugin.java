@@ -1,4 +1,4 @@
-package com.metafour.barcode;
+package com.metafour.barcode.plugin;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -9,11 +9,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.com.metafour.barcode.opticon.BarcodeScan;
+import android.com.metafour.barcode.opticon.OpticonIntentHandler;
+import android.com.metafour.barcode.opticon.ScanCallback;
 import android.util.Log;
-
-import com.metafour.barcode.opticon.BarcodeScan;
-import com.metafour.barcode.opticon.OpticonIntentHandler;
-import com.metafour.barcode.opticon.ScanCallback;
 
 public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 

@@ -26,10 +26,10 @@
         
         <source-file src="libs/com.oem.barcode.sdk.jar" target-dir="lib" />
         
-        <source-file src="src/com/metafour/barcode/OpticonBarcodeReaderPlugin.java" target-dir="lib" />
-        <source-file src="src/com/metafour/barcode/opticon/OpticonIntentHandler.java" target-dir="lib" />
-        <source-file src="src/com/metafour/barcode/opticon/BarcodeScan.java" target-dir="lib" />
-        <source-file src="src/com/metafour/barcode/opticon/ScanCallback.java" target-dir="lib" />
+        <source-file src="lib/android/com/metafour/barcode/opticon/OpticonIntentHandler.java" target-dir="src/com/metafour/barcode/opticon" />
+        <source-file src="lib/android/com/metafour/barcode/opticon/BarcodeScan.java" target-dir="src/com/metafour/barcode/opticon" />
+        <source-file src="lib/android/com/metafour/barcode/opticon/ScanCallback.java" target-dir="src/com/metafour/barcode/opticon" />
+        <source-file src="src/android/com/metafour/barcode/plugin/OpticonBarcodeReaderPlugin.java" target-dir="src/com/metafour/barcode/plugin" />
                 
     </platform>
 
