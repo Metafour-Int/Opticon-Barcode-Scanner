@@ -4,7 +4,7 @@
            id="com.metafour.barcode"
       version="0.0.1">
       
-    <name>Motorola Cordova Plugin</name>
+    <name>Metafour Barcode Scanner for Opticon</name>
 
 
     <js-module src="www/barreader.js" name="OpticonBarcodeReader">
