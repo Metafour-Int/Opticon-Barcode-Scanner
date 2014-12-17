@@ -20,10 +20,10 @@
             </feature>
         </config-file>
         
-        <config-file target="AndroidManifest.xml" parent="/*/application/activity">
+        <!-- config-file target="AndroidManifest.xml" parent="/*/application/activity">
 			<permission android:protectionLevel="normal" android:name="android.permission.BCR" />
 			<uses-permission android:name="android.permission.RECEIVE_SCANNER" />
-        </config-file>
+        </config-file-->
         
         <source-file src="libs/com.oem.barcode.sdk.jar" target-dir="src/com.oem.barcode.sdk.jar" />
         
