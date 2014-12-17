@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+           id="com.metafour.barcode"
+      version="0.0.1">
+      
+    <name>Motorola Cordova Plugin</name>
+
+
+    <js-module src="www/barreader.js" name="OpticonBarcodeReader">
+        <clobbers target="datawedge" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="OpticonBarcodeReader" >
+                <param name="android-package" value="com.metafour.barcode.OpticonBarcodeReaderPlugin"/>
+            </feature>
+        </config-file>
+         <config-file target="AndroidManifest.xml" parent="/*/application/activity">
+			<permission android:protectionLevel="normal" android:name="android.permission.BCR" />
+			<uses-permission android:name="android.permission.RECEIVE_SCANNER" />
+        </config-file>
+        <source-file src="libs/com.oem.barcode.sdk.jar" target-dir="libs" />
+        <source-file src="src/com/metafour/barcode/opticon/OpticonIntentHandler.java" target-dir="src/com/metafour/opticon" />
+        <source-file src="src/com/metafour/barcode/OpticonBarcodeReaderPlugin.java" target-dir="src/com/metafour" />
+        <source-file src="src/com/metafour/barcode/BarcodeScan.java" target-dir="src/com/metafour" />
+        <source-file src="src/com/metafour/barcode/ScanCallback.java" target-dir="src/com/metafour" />
+                
+    </platform>
+
+</plugin>
