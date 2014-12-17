@@ -24,12 +24,12 @@
 			<uses-permission android:name="android.permission.RECEIVE_SCANNER" />
         </config-file>
         
-        <source-file src="libs/com.oem.barcode.sdk.jar" target-dir="libs" />
+        <source-file src="libs/com.oem.barcode.sdk.jar" target-dir="lib" />
         
-        <source-file src="src/com/metafour/barcode/OpticonBarcodeReaderPlugin.java" target-dir="src/com/metafour" />
-        <source-file src="src/com/metafour/barcode/opticon/OpticonIntentHandler.java" target-dir="src/com/metafour/opticon" />
-        <source-file src="src/com/metafour/barcode/opticon/BarcodeScan.java" target-dir="src/com/metafour/opticon" />
-        <source-file src="src/com/metafour/barcode/opticon/ScanCallback.java" target-dir="src/com/metafour/opticon" />
+        <source-file src="src/com/metafour/barcode/OpticonBarcodeReaderPlugin.java" target-dir="lib" />
+        <source-file src="src/com/metafour/barcode/opticon/OpticonIntentHandler.java" target-dir="lib" />
+        <source-file src="src/com/metafour/barcode/opticon/BarcodeScan.java" target-dir="lib" />
+        <source-file src="src/com/metafour/barcode/opticon/ScanCallback.java" target-dir="lib" />
                 
     </platform>
 
