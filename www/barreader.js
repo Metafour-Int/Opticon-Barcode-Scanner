@@ -4,36 +4,26 @@ var exec = require('cordova/exec');
  /**
  * Constructor.
  *
- * @returns {DataWedge}
+ * @returns {BarcodeReader}
  */
 function BarcodeReader() {
 
 };
 
-BarcodeReader.prototype.start = function (intentAction) {
-    var args = [];
-    if (intentAction) {
-        args[0] = intentAction;
-    }
-    exec(null, null, 'OpticonBarcodeReader', 'start', args);
+BarcodeReader.prototype.start = function () {
+    exec(null, null, 'OpticonBarcodeReader', 'start', []);
 };
 
-BarcodeReader.prototype.stop = function (intentAction) {
-    var args = [];
-    if (intentAction) {
-        args[0] = intentAction;
-    }
-    exec(null, null, 'OpticonBarcodeReader', 'stop', args);
+BarcodeReader.prototype.stop = function () {
+    exec(null, null, 'OpticonBarcodeReader', 'stop', []);
 };
 
 BarcodeReader.prototype.registerForBarcode = function (callback) {
-    
     exec(callback, null, 'OpticonBarcodeReader', 'scanner.register', []);
 };
 
-BarcodeReader.prototype.unregisterMagstripe = function () {
-    
-    exec(null, null, 'OpticonBarcodeReader', 'magstripe.unregister', []);
+BarcodeReader.prototype.unregisterBarcode = function () {
+    exec(null, null, 'OpticonBarcodeReader', 'scanner.unregister', []);
 };
 
 //create instance
