@@ -9,7 +9,7 @@
     <name>Metafour Barcode Scanner for Opticon</name>
 
     <engines>
-            <engine name="cordova" version="&gt;=3.1.0" />
+            <engine name="cordova" version=">=3.1.0" />
     </engines>
 
     <js-module src="www/barreader.js" name="OpticonBarcodeReader">
@@ -25,7 +25,7 @@
             </feature>
         </config-file>
         
-        <config-file target="AndroidManifest.xml" parent="/*/application/activity">
+        <config-file target="AndroidManifest.xml" parent="/*/manifest">
 			<permission android:protectionLevel="normal" android:name="android.permission.BCR" />
 			<uses-permission android:name="android.permission.RECEIVE_SCANNER" />
         </config-file>
