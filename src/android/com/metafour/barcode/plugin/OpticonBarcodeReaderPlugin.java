@@ -59,6 +59,8 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 			}
 		} else if ("stop".equals(action)) {
 			intentHandler.stop();
+		} else if ("scan".equals(action)){
+			intentHandler.scan();
 		}
 
 		// start plugin now if not already started

@@ -18,6 +18,10 @@ BarcodeReader.prototype.stop = function () {
     exec(null, null, 'OpticonBarcodeReader', 'stop', []);
 };
 
+BarcodeReader.prototype.scan = function () {
+    exec(null, null, 'OpticonBarcodeReader', 'scan', []);
+};
+
 BarcodeReader.prototype.registerForBarcode = function (callback) {
     exec(callback, null, 'OpticonBarcodeReader', 'scanner.register', []);
 };

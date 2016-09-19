@@ -3,6 +3,7 @@ package com.metafour.barcode.opticon;
 import java.util.List;
 
 import com.oem.barcode.BCRIntents;
+import com.oem.barcode.BCRManager;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -71,6 +72,10 @@ public class OpticonIntentHandler {
 
             hasInitialized = false;
         }
+    }
+    
+    public void scan(){
+    	BCRManager.getDefault().BCRTriggerPress();
     }
 
 	
