@@ -8,12 +8,12 @@ var bcs = window.barreader;
 if (bcs) {
   bcs.start();
   bcs.registerForBarcode((data) => {
-    //callback for barcode data from software buttonp press or hardware button press
+    //callback for barcode data from software button press or hardware button press
     console.log('This is some barcode data', data);
   }
 }
 
-//Initiate the scan using 'soft' button rather than
+//Initiate the scan using 'software' button rather than hardware button
 if (bcs) {
   bcs.scan(); // data will be captured by the registerForBarcode callback
 }
