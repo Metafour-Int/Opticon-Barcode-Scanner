@@ -9,20 +9,23 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.metafour.barcode.opticon.BarcodeScan;
+import com.metafour.barcode.BarcodeScan;
+import com.metafour.barcode.ScanCallback;
+import com.metafour.barcode.ScanningIntentHandler;
 import com.metafour.barcode.opticon.OpticonIntentHandler;
-import com.metafour.barcode.opticon.ScanCallback;
+import com.metafour.barcode.zebra.ZebraIntentHandler;
+
 import android.util.Log;
 
 public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 
-	private OpticonIntentHandler intentHandler;
+	private ScanningIntentHandler intentHandler;
 	protected static String TAG = "OpticonBarcodeReaderPlugin";
 
 	@Override
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 		super.initialize(cordova, webView);
-		intentHandler = new OpticonIntentHandler(cordova.getActivity().getBaseContext());
+		
 	}
 
 	@Override
@@ -30,6 +33,13 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 			final CallbackContext callbackContext) throws JSONException {
 
 		if ("scanner.register".equals(action)) {
+			
+			if("zebra-datawedge".equalsIgnoreCase(args.getString(0))) {
+				intentHandler = new ZebraIntentHandler(cordova.getActivity().getBaseContext());
+			}else {
+				intentHandler = new OpticonIntentHandler(cordova.getActivity().getBaseContext());
+			}
+			
 			
 			intentHandler.setScanCallback(new ScanCallback<BarcodeScan>() {
 				@Override

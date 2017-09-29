@@ -1,4 +1,4 @@
-package com.metafour.barcode.opticon;
+package com.metafour.barcode;
 
 public interface ScanCallback<ResultT> {
 
