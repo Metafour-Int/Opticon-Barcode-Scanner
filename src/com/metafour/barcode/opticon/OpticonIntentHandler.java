@@ -1,7 +1,5 @@
 package com.metafour.barcode.opticon;
 
-import java.util.List;
-
 import com.metafour.barcode.BarcodeScan;
 import com.metafour.barcode.ScanCallback;
 import com.metafour.barcode.ScanningIntentHandler;
