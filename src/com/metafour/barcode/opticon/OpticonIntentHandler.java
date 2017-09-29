@@ -8,6 +8,7 @@ import com.metafour.barcode.ScanningIntentHandler;
 import com.oem.barcode.BCRIntents;
 import com.oem.barcode.BCRManager;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
