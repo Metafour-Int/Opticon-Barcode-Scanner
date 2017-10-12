@@ -117,6 +117,8 @@ public class ZebraIntentHandler implements ScanningIntentHandler {
 	            
 	        }
 	        
+	        scanCallback.execute(new BarcodeScan(null, null));
+	        
         }
     };
 
