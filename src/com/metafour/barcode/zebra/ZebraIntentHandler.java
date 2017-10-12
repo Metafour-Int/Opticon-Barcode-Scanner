@@ -24,7 +24,7 @@ public class ZebraIntentHandler implements ScanningIntentHandler {
     // (in the case of MSR this data string contains a concatenation of the track data)  
     private static final String DATA_STRING_TAG = "com.motorolasolutions.emdk.datawedge.data_string";
     // DataWedge Action receiver
-    private static final String ACTION_NEW_DATA = "com.symbol.datawedge.DWDEMO";
+    private static final String ACTION_NEW_DATA = "com.metapp.datawedge.ACTION";
     // Scanning actions
     private static final String ACTION_SOFTSCANTRIGGER = "com.motorolasolutions.emdk.datawedge.api.ACTION_SOFTSCANTRIGGER";  
     private static final String EXTRA_PARAM = "com.motorolasolutions.emdk.datawedge.api.EXTRA_PARAMETER";  
