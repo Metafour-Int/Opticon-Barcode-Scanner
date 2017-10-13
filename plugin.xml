@@ -19,13 +19,13 @@
     <!-- android -->
     <platform name="android">
         
-        <config-file target="res/xml/config.xml" parent="/*/application/activity">
+        <config-file target="res/xml/config.xml" parent="/*">
             <feature name="OpticonBarcodeReader">
                 <param name="android-package" value="com.metafour.barcode.plugin.OpticonBarcodeReaderPlugin"/>
             </feature>
         </config-file>
         
-        <config-file target="AndroidManifest.xml" parent="/manifest">
+        <config-file target="AndroidManifest.xml" parent="/*/application/activity">
 			<permission android:protectionLevel="normal" android:name="android.permission.BCR" />
 			<uses-permission android:name="android.permission.RECEIVE_SCANNER" />
 			
