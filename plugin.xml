@@ -28,6 +28,12 @@
         <config-file target="AndroidManifest.xml" parent="/manifest">
 			<permission android:protectionLevel="normal" android:name="android.permission.BCR" />
 			<uses-permission android:name="android.permission.RECEIVE_SCANNER" />
+			
+			<intent-filter>
+                <action android:name="com.metapp.datawedge.ACTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+			
         </config-file>
         
         <source-file src="libs/com.oem.barcode.sdk.jar" target-dir="libs" />
