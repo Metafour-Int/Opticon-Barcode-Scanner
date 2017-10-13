@@ -103,6 +103,8 @@ public class ZebraIntentHandler implements ScanningIntentHandler {
         @Override
         public void onReceive(Context context, Intent intent) {
         	
+        	Log.e(TAG, "*********** THIS IS IN onReceive ******************");
+        	
 	        if (intent != null) {
 	            
 	        	String type = intent.getStringExtra(LABEL_TYPE_TAG);
