@@ -1,4 +1,4 @@
-package com.metafour.barcode.zebra;
+package com.metafour.barcode.datawedge;
 
 import com.metafour.barcode.BarcodeScan;
 import com.metafour.barcode.ScanCallback;
@@ -10,21 +10,21 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
 
-public class ZebraIntentHandler implements ScanningIntentHandler {
+public class DatawedgeIntentHandler implements ScanningIntentHandler {
 	
-	protected static String TAG = ZebraIntentHandler.class.getSimpleName();
+	protected static String TAG = DatawedgeIntentHandler.class.getSimpleName();
 	protected Context applicationContext;
 	
 	protected static Object stateLock = new Object();
 	protected static boolean hasInitialized = false;
 	
 	// This intent string contains the barcode symbology as a string  
-    private static final String LABEL_TYPE_TAG = "com.motorolasolutions.emdk.datawedge.label_type";  
+    private static final String LABEL_TYPE_TAG = "com.symbol.datawedge.label_type";  
     // This intent string contains the captured data as a string  
     // (in the case of MSR this data string contains a concatenation of the track data)  
-    private static final String DATA_STRING_TAG = "com.motorolasolutions.emdk.datawedge.data_string";
+    private static final String DATA_STRING_TAG = "com.symbol.datawedge.decode_data.data_string";
     // DataWedge Action receiver
-    private static final String ACTION_NEW_DATA = "com.metapp.datawedge.ACTION";
+    private static final String ACTION_NEW_DATA = "com.metapp.datawedge.SCANNER";
     // Scanning actions
     private static final String ACTION_SOFTSCANTRIGGER = "com.motorolasolutions.emdk.datawedge.api.ACTION_SOFTSCANTRIGGER";  
     private static final String EXTRA_PARAM = "com.motorolasolutions.emdk.datawedge.api.EXTRA_PARAMETER";  
@@ -32,9 +32,37 @@ public class ZebraIntentHandler implements ScanningIntentHandler {
 	
 	protected ScanCallback<BarcodeScan> scanCallback;
 	
-	public ZebraIntentHandler(Context context) {
+	private BroadcastReceiver dataReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+        	
+        	Log.e(TAG, "*********** THIS IS IN onReceive ******************");
+        	Log.e(TAG, "Intent = " + intent);
+	        if (intent != null) {
+	            
+	        	String type = intent.getStringExtra(LABEL_TYPE_TAG);
+	        	String decodedBarcode = intent.getStringExtra(DATA_STRING_TAG);
+	        	
+	        	Log.e(TAG, type + " " + decodedBarcode);
+	        	
+	        	if (scanCallback == null) {
+	                Log.e(TAG, "Scan data received, but callback is null.");
+	                return;
+	            }
+	        	
+	        	scanCallback.execute(new BarcodeScan(type, decodedBarcode));
+	            
+	        }
+	        
+	        scanCallback.execute(new BarcodeScan(null, null));
+	        
+        }
+    };
+	
+	public DatawedgeIntentHandler(Context context) {
 		this.TAG = this.getClass().getSimpleName();
 		applicationContext = context;
+		
 		
 	}
 	
@@ -99,30 +127,7 @@ public class ZebraIntentHandler implements ScanningIntentHandler {
 		scanCallback = callback;		
 	}
 
-	private BroadcastReceiver dataReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-        	
-        	Log.e(TAG, "*********** THIS IS IN onReceive ******************");
-        	Log.e(TAG, "Intent = " + intent);
-	        if (intent != null) {
-	            
-	        	String type = intent.getStringExtra(LABEL_TYPE_TAG);
-	        	String decodedBarcode = intent.getStringExtra(DATA_STRING_TAG);
-	        	
-	        	if (scanCallback == null) {
-	                Log.e(TAG, "Scan data received, but callback is null.");
-	                return;
-	            }
-	        	
-	        	scanCallback.execute(new BarcodeScan(type, decodedBarcode));
-	            
-	        }
-	        
-	        scanCallback.execute(new BarcodeScan(null, null));
-	        
-        }
-    };
+
 
 	@Override
 	public boolean hasListeners() {

@@ -1,6 +1,6 @@
 {
   "name": "Metafour Barcode Scanner for Opticon",
-  "version": "1.01",
+  "version": "1.0.1",
   "description": "Barcode scanner for laser devices",
   "cordova": {
     "id": "com.metafour.barcode",

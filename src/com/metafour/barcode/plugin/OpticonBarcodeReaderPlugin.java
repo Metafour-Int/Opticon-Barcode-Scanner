@@ -12,8 +12,8 @@ import org.json.JSONObject;
 import com.metafour.barcode.BarcodeScan;
 import com.metafour.barcode.ScanCallback;
 import com.metafour.barcode.ScanningIntentHandler;
+import com.metafour.barcode.datawedge.DatawedgeIntentHandler;
 import com.metafour.barcode.opticon.OpticonIntentHandler;
-import com.metafour.barcode.zebra.ZebraIntentHandler;
 
 import android.util.Log;
 
@@ -39,9 +39,9 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 			
 			Log.e(TAG, "In the scanner.register");
 			
-			if("zebra-datawedge".equalsIgnoreCase(args.getString(0))) {
-				Log.e(TAG, "******** ZEBRA ***********");
-				intentHandler = new ZebraIntentHandler(cordova.getActivity().getBaseContext());
+			if("datawedge".equalsIgnoreCase(args.getString(0))) {
+				Log.e(TAG, "*********** ZEBRA ***********");
+				intentHandler = new DatawedgeIntentHandler(cordova.getActivity().getBaseContext());
 			}else {
 				intentHandler = new OpticonIntentHandler(cordova.getActivity().getBaseContext());
 			}
