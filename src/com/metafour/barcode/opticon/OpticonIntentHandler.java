@@ -38,7 +38,7 @@ public class OpticonIntentHandler implements ScanningIntentHandler {
     }
     
     public void start() {
-        Log.i(TAG, "Open called");
+        Log.i(TAG, "Open called in Opticon");
         if (hasInitialized) {
             return;
         }

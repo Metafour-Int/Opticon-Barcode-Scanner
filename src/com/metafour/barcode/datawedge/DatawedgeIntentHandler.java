@@ -67,7 +67,7 @@ public class DatawedgeIntentHandler implements ScanningIntentHandler {
 	}
 	
 	public void start() {
-        Log.i(TAG, "Open called");
+        Log.i(TAG, "Open called in Datawedge");
         if (hasInitialized) {
             return;
         }
