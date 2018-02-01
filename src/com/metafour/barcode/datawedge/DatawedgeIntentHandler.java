@@ -26,8 +26,8 @@ public class DatawedgeIntentHandler implements ScanningIntentHandler {
     // DataWedge Action receiver
     private static final String ACTION_NEW_DATA = "com.metapp.datawedge.SCANNER";
     // Scanning actions
-    private static final String ACTION_SOFTSCANTRIGGER = "com.motorolasolutions.emdk.datawedge.api.ACTION_SOFTSCANTRIGGER";  
-    private static final String EXTRA_PARAM = "com.motorolasolutions.emdk.datawedge.api.EXTRA_PARAMETER";  
+    private static final String ACTION_SOFTSCANTRIGGER = "com.symbol.datawedge.api.ACTION_SOFTSCANTRIGGER";  
+    private static final String EXTRA_PARAM = "com.symbol.datawedge.api.EXTRA_PARAMETER";  
     private static final String DWAPI_TOGGLE_SCANNING = "TOGGLE_SCANNING";
 	
 	protected ScanCallback<BarcodeScan> scanCallback;
@@ -36,8 +36,8 @@ public class DatawedgeIntentHandler implements ScanningIntentHandler {
         @Override
         public void onReceive(Context context, Intent intent) {
         	
-        	Log.e(TAG, "*********** THIS IS IN onReceive ******************");
-        	Log.e(TAG, "Intent = " + intent);
+        	Log.i(TAG, "*********** THIS IS IN onReceive ******************");
+        	Log.i(TAG, "Intent = " + intent);
 	        if (intent != null) {
 	            
 	        	String type = intent.getStringExtra(LABEL_TYPE_TAG);
