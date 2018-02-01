@@ -32,17 +32,18 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 	public boolean execute(String action, JSONArray args,
 			final CallbackContext callbackContext) throws JSONException {
 		
-		Log.e(TAG, "Action: " + action);
-		Log.e(TAG, "Args: " + args);
+		Log.i(TAG, "Action: " + action);
+		Log.i(TAG, "Args: " + args);
 
 		if ("scanner.register".equals(action)) {
 			
-			Log.e(TAG, "In the scanner.register");
+			Log.i(TAG, "In the scanner.register");
 			
 			if("datawedge".equalsIgnoreCase(args.getString(0))) {
-				Log.e(TAG, "*********** ZEBRA ***********");
+				Log.i(TAG, "*********** About to load DatawedgeIntentHandler ***********");
 				intentHandler = new DatawedgeIntentHandler(cordova.getActivity().getBaseContext());
 			}else {
+				Log.i(TAG, "*********** About to load OpticonIntentHandler ***********");
 				intentHandler = new OpticonIntentHandler(cordova.getActivity().getBaseContext());
 			}
 			
