@@ -20,6 +20,8 @@ public class OpticonIntentHandler implements ScanningIntentHandler {
 	protected static Object stateLock = new Object();
 	protected static boolean hasInitialized = false;
 	
+	private static String INTENT_ACTION = BCRIntents.ACTION_NEW_DATA;
+	
 	protected ScanCallback<BarcodeScan> scanCallback;
 	
 	public OpticonIntentHandler(Context context) {
@@ -47,7 +49,7 @@ public class OpticonIntentHandler implements ScanningIntentHandler {
                 return;
             }
 
-            Log.i(TAG, "Register for Opticon intent: " + BCRIntents.ACTION_NEW_DATA);
+            Log.i(TAG, "Register for Opticon intent: " + INTENT_ACTION);
 
             applicationContext.registerReceiver(dataReceiver, new IntentFilter(BCRIntents.ACTION_NEW_DATA));
             
@@ -107,5 +109,10 @@ public class OpticonIntentHandler implements ScanningIntentHandler {
 	        
         }
     };
+
+	@Override
+	public void setIntentAction(String action) {
+		this.INTENT_ACTION = action;
+	}
 
 }

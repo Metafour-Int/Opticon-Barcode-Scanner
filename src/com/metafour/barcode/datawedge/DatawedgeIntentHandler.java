@@ -25,6 +25,7 @@ public class DatawedgeIntentHandler implements ScanningIntentHandler {
     private static final String DATA_STRING_TAG = "com.symbol.datawedge.data_string";
     // DataWedge Action receiver
     private static final String ACTION_NEW_DATA = "com.metapp.datawedge.SCANNER";
+    private static String INTENT_ACTION = ACTION_NEW_DATA;
     // Scanning actions
     private static final String ACTION_SOFTSCANTRIGGER = "com.symbol.datawedge.api.ACTION_SOFTSCANTRIGGER";  
     private static final String EXTRA_PARAM = "com.symbol.datawedge.api.EXTRA_PARAMETER";  
@@ -54,7 +55,7 @@ public class DatawedgeIntentHandler implements ScanningIntentHandler {
 	            
 	        }
 	        
-	        scanCallback.execute(new BarcodeScan(null, null));
+	        //scanCallback.execute(new BarcodeScan(null, null));
 	        
         }
     };
@@ -80,7 +81,7 @@ public class DatawedgeIntentHandler implements ScanningIntentHandler {
             
             IntentFilter filter = new IntentFilter();
             filter.addCategory(Intent.CATEGORY_DEFAULT);
-            filter.addAction(ACTION_NEW_DATA);
+            filter.addAction(this.INTENT_ACTION);
             
             applicationContext.registerReceiver(dataReceiver, filter);
             
@@ -136,6 +137,11 @@ public class DatawedgeIntentHandler implements ScanningIntentHandler {
 	@Override
 	public boolean hasListeners() {
 		return this.scanCallback != null;
+	}
+
+	@Override
+	public void setIntentAction(String action) {
+		this.INTENT_ACTION = action;
 	}
 
 
