@@ -95,6 +95,7 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 
 		// start plugin now if not already started
 		if ("start".equals(action)) {
+			Log.i(TAG, "Calling Start. Status of intentHandler is " + intentHandler);
 			if(intentHandler != null) intentHandler.start();
 		}
 
