@@ -33,7 +33,9 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 			final CallbackContext callbackContext) throws JSONException {
 		
 		Log.i(TAG, "Action: " + action);
-		Log.i(TAG, "Args: " + args);
+		Log.i(TAG, "Args: " + args); //["datawedge"]
+		Log.i(TAG, "Args.getString(0): " + args.getString(0));
+		Log.i(TAG, "Args.get(0): " + args.get(0));
 
 		if ("scanner.register".equals(action)) {
 			
