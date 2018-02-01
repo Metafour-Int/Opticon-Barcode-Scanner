@@ -22,7 +22,7 @@ public class DatawedgeIntentHandler implements ScanningIntentHandler {
     private static final String LABEL_TYPE_TAG = "com.symbol.datawedge.label_type";  
     // This intent string contains the captured data as a string  
     // (in the case of MSR this data string contains a concatenation of the track data)  
-    private static final String DATA_STRING_TAG = "com.symbol.datawedge.decode_data.data_string";
+    private static final String DATA_STRING_TAG = "com.symbol.datawedge.data_string";
     // DataWedge Action receiver
     private static final String ACTION_NEW_DATA = "com.metapp.datawedge.SCANNER";
     // Scanning actions
@@ -78,7 +78,11 @@ public class DatawedgeIntentHandler implements ScanningIntentHandler {
 
             Log.i(TAG, "Register for Datawedge intent: " + this.ACTION_NEW_DATA);
             
-            applicationContext.registerReceiver(dataReceiver, new IntentFilter(this.ACTION_NEW_DATA));
+            IntentFilter filter = new IntentFilter();
+            filter.addCategory(Intent.CATEGORY_DEFAULT);
+            filter.addAction(ACTION_NEW_DATA);
+            
+            applicationContext.registerReceiver(dataReceiver, filter);
             
             hasInitialized = true;
         }
