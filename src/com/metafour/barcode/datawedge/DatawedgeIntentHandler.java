@@ -77,7 +77,7 @@ public class DatawedgeIntentHandler implements ScanningIntentHandler {
                 return;
             }
 
-            Log.i(TAG, "Register for Datawedge intent: " + this.ACTION_NEW_DATA);
+            Log.i(TAG, "Register for Datawedge intent: " + this.INTENT_ACTION);
             
             IntentFilter filter = new IntentFilter();
             filter.addCategory(Intent.CATEGORY_DEFAULT);
