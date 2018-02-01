@@ -39,7 +39,7 @@
         <source-file src="libs/com.oem.barcode.sdk.jar" target-dir="libs" />
         
         <source-file src="src/com/metafour/barcode/opticon/OpticonIntentHandler.java" target-dir="src/com/metafour/barcode/opticon/OpticonIntentHandler.java"/>
-        <source-file src="src/com/metafour/barcode/zebra/ZebraIntentHandler.java" target-dir="src/com/metafour/barcode/zebra/ZebraIntentHandler.java" />
+        <source-file src="src/com/metafour/barcode/datawedge/DatawedgeIntentHandler.java" target-dir="src/com/metafour/barcode/datawedge/DatawedgeIntentHandler.java" />
         <source-file src="src/com/metafour/barcode/BarcodeScan.java" target-dir="src/com/metafour/barcode/BarcodeScan.java" />
         <source-file src="src/com/metafour/barcode/ScanCallback.java" target-dir="src/com/metafour/barcode/ScanCallback.java" />
         <source-file src="src/com/metafour/barcode/ScanningIntentHandler.java" target-dir="src/com/metafour/barcode/ScanningIntentHandler.java" />
