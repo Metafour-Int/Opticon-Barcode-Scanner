@@ -80,23 +80,23 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 			});
 			
 		} else if ("scanner.unregister".equals(action)) {
-			if(intentHandler != null) {
-				intentHandler.setScanCallback(null);
-				if (!intentHandler.hasListeners()) {
-					intentHandler.stop();
-				}
+			
+			intentHandler.setScanCallback(null);
+			if (!intentHandler.hasListeners()) {
+				intentHandler.stop();
 			}
+		
 
 		} else if ("stop".equals(action)) {
-			if(intentHandler != null) intentHandler.stop();
+			intentHandler.stop();
 		} else if ("scan".equals(action)){
-			if(intentHandler != null) intentHandler.scan();
+			intentHandler.scan();
 		}
 
 		// start plugin now if not already started
 		if ("start".equals(action)) {
 			Log.i(TAG, "Calling Start. Status of intentHandler is " + intentHandler);
-			if(intentHandler != null) intentHandler.start();
+			intentHandler.start();
 		}
 
 		return true;
