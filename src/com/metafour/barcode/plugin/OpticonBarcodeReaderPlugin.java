@@ -40,12 +40,12 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 		if ("scanner.register".equals(action)) {
 			
 			Log.i(TAG, "In the scanner.register");
-			
+						
 			if("datawedge".equalsIgnoreCase(args.getString(0))) {
-				Log.i(TAG, "*********** About to load DatawedgeIntentHandler ***********");
+				Log.i(TAG, "Calling DatawedgeIntentHandler");
 				intentHandler = new DatawedgeIntentHandler(cordova.getActivity().getBaseContext());
 			}else {
-				Log.i(TAG, "*********** About to load OpticonIntentHandler ***********");
+				Log.i(TAG, "Calling OpticonIntentHandler");
 				intentHandler = new OpticonIntentHandler(cordova.getActivity().getBaseContext());
 			}
 			
