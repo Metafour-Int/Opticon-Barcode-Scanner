@@ -47,7 +47,7 @@ public class OpticonIntentHandler implements ScanningIntentHandler {
                 return;
             }
 
-            Log.i(TAG, "Register for Datawedge intent: " + BCRIntents.ACTION_NEW_DATA);
+            Log.i(TAG, "Register for Opticon intent: " + BCRIntents.ACTION_NEW_DATA);
 
             applicationContext.registerReceiver(dataReceiver, new IntentFilter(BCRIntents.ACTION_NEW_DATA));
             
