@@ -10,8 +10,8 @@ function BarcodeReader() {
 
 };
 
-BarcodeReader.prototype.start = function () {
-    exec(null, null, 'OpticonBarcodeReader', 'start', []);
+BarcodeReader.prototype.start = function (actionIntent) {
+    exec(null, null, 'OpticonBarcodeReader', 'start', [actionIntent]);
 };
 
 BarcodeReader.prototype.stop = function () {

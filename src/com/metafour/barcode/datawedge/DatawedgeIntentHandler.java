@@ -51,9 +51,10 @@ public class DatawedgeIntentHandler implements ScanningIntentHandler {
 	                return;
 	            }
 	        	
+	        	
 	        	scanCallback.execute(new BarcodeScan(type, decodedBarcode));
 	            
-	        }
+	        }	        
 	        
 	        //scanCallback.execute(new BarcodeScan(null, null));
 	        
