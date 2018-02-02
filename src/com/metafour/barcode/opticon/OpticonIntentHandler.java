@@ -1,7 +1,8 @@
 package com.metafour.barcode.opticon;
 
-import java.util.List;
-
+import com.metafour.barcode.BarcodeScan;
+import com.metafour.barcode.ScanCallback;
+import com.metafour.barcode.ScanningIntentHandler;
 import com.oem.barcode.BCRIntents;
 import com.oem.barcode.BCRManager;
 
@@ -11,13 +12,17 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
 
-public class OpticonIntentHandler {
+public class OpticonIntentHandler implements ScanningIntentHandler {
 	
 	protected static String TAG = OpticonIntentHandler.class.getSimpleName();
 	protected Context applicationContext;
 	
 	protected static Object stateLock = new Object();
 	protected static boolean hasInitialized = false;
+	
+	private static String INTENT_ACTION = BCRIntents.ACTION_NEW_DATA;
+	
+	protected ScanCallback<BarcodeScan> scanCallback;
 	
 	public OpticonIntentHandler(Context context) {
 		this.TAG = this.getClass().getSimpleName();
@@ -29,13 +34,13 @@ public class OpticonIntentHandler {
         return this.scanCallback != null;
     }
 	
-    protected ScanCallback<BarcodeScan> scanCallback;
+    
     public void setScanCallback(ScanCallback<BarcodeScan> callback){
         scanCallback = callback;
     }
     
     public void start() {
-        Log.i(TAG, "Open called");
+        Log.i(TAG, "Open called in Opticon");
         if (hasInitialized) {
             return;
         }
@@ -44,7 +49,7 @@ public class OpticonIntentHandler {
                 return;
             }
 
-            Log.i(TAG, "Register for Datawedge intent: " + BCRIntents.ACTION_NEW_DATA);
+            Log.i(TAG, "Register for Opticon intent: " + INTENT_ACTION);
 
             applicationContext.registerReceiver(dataReceiver, new IntentFilter(BCRIntents.ACTION_NEW_DATA));
             
@@ -104,5 +109,10 @@ public class OpticonIntentHandler {
 	        
         }
     };
+
+	@Override
+	public void setIntentAction(String action) {
+		this.INTENT_ACTION = action;
+	}
 
 }

@@ -9,27 +9,52 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.metafour.barcode.opticon.BarcodeScan;
+import com.metafour.barcode.BarcodeScan;
+import com.metafour.barcode.ScanCallback;
+import com.metafour.barcode.ScanningIntentHandler;
+import com.metafour.barcode.datawedge.DatawedgeIntentHandler;
 import com.metafour.barcode.opticon.OpticonIntentHandler;
-import com.metafour.barcode.opticon.ScanCallback;
+
 import android.util.Log;
 
 public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 
-	private OpticonIntentHandler intentHandler;
+	private ScanningIntentHandler intentHandler;
 	protected static String TAG = "OpticonBarcodeReaderPlugin";
 
 	@Override
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 		super.initialize(cordova, webView);
-		intentHandler = new OpticonIntentHandler(cordova.getActivity().getBaseContext());
+		
 	}
 
 	@Override
 	public boolean execute(String action, JSONArray args,
 			final CallbackContext callbackContext) throws JSONException {
+		
+		Log.i(TAG, "Action: " + action);
+		Log.i(TAG, "Args: " + args); //["datawedge"]
 
 		if ("scanner.register".equals(action)) {
+			
+			Log.i(TAG, "In the scanner.register");
+			
+			String argValue = "DEFAULT";
+			try {
+				argValue = args.getString(0);
+			}catch(Exception e) {
+				Log.e(TAG, "Exception getting argument");
+			}
+
+						
+			if("datawedge".equalsIgnoreCase(argValue)) {
+				Log.i(TAG, "Calling DatawedgeIntentHandler");
+				intentHandler = new DatawedgeIntentHandler(cordova.getActivity().getBaseContext());
+			}else {
+				Log.i(TAG, "Calling OpticonIntentHandler");
+				intentHandler = new OpticonIntentHandler(cordova.getActivity().getBaseContext());
+			}
+			
 			
 			intentHandler.setScanCallback(new ScanCallback<BarcodeScan>() {
 				@Override
@@ -53,10 +78,13 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 			});
 			
 		} else if ("scanner.unregister".equals(action)) {
+			
 			intentHandler.setScanCallback(null);
 			if (!intentHandler.hasListeners()) {
 				intentHandler.stop();
 			}
+		
+
 		} else if ("stop".equals(action)) {
 			intentHandler.stop();
 		} else if ("scan".equals(action)){
@@ -65,6 +93,21 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 
 		// start plugin now if not already started
 		if ("start".equals(action)) {
+			Log.i(TAG, "Calling Start. Status of intentHandler is " + intentHandler);
+			
+			String argValue = null;
+			try {
+				argValue = args.getString(0);
+			}catch(Exception e) {
+				Log.e(TAG, "Exception getting argument");
+			}
+			
+			if(argValue != null) {
+				Log.i(TAG, "Setting custom intent action " + argValue);
+				intentHandler.setIntentAction(argValue);
+			}
+			
+			
 			intentHandler.start();
 		}
 

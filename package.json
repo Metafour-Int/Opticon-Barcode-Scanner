@@ -1,0 +1,18 @@
+{
+  "name": "Metafour Barcode Scanner for Opticon",
+  "version": "1.0.1",
+  "description": "Barcode scanner for laser devices",
+  "cordova": {
+    "id": "com.metafour.barcode",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "datawedge",
+    "cordova-android",
+    "opticon",
+    "zebra"
+  ],
+  "author": "Metafour Ltd"
+}
