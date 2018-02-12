@@ -82,7 +82,7 @@ public class DatawedgeIntentHandler implements ScanningIntentHandler {
             
             IntentFilter filter = new IntentFilter();
             filter.addCategory(Intent.CATEGORY_DEFAULT);
-            filter.addAction(this.INTENT_ACTION);
+            filter.addAction(INTENT_ACTION);
             
             applicationContext.registerReceiver(dataReceiver, filter);
             
