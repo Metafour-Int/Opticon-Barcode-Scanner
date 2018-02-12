@@ -25,7 +25,7 @@ public class DatawedgeIntentHandler implements ScanningIntentHandler {
     private static final String DATA_STRING_TAG = "com.symbol.datawedge.data_string";
     // DataWedge Action receiver
     private static final String ACTION_NEW_DATA = "com.metapp.datawedge.SCANNER";
-    private static String INTENT_ACTION = ACTION_NEW_DATA;
+    private static final String INTENT_ACTION = ACTION_NEW_DATA;
     // Scanning actions
     private static final String ACTION_SOFTSCANTRIGGER = "com.symbol.datawedge.api.ACTION_SOFTSCANTRIGGER";  
     private static final String EXTRA_PARAM = "com.symbol.datawedge.api.EXTRA_PARAMETER";  

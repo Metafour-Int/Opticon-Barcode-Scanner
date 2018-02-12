@@ -20,7 +20,7 @@ public class OpticonIntentHandler implements ScanningIntentHandler {
 	protected static Object stateLock = new Object();
 	protected static boolean hasInitialized = false;
 	
-	private static String INTENT_ACTION = BCRIntents.ACTION_NEW_DATA;
+	private static final String INTENT_ACTION = BCRIntents.ACTION_NEW_DATA;
 	
 	protected ScanCallback<BarcodeScan> scanCallback;
 	

@@ -39,15 +39,7 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 		if ("scanner.register".equals(action)) {
 			
 			Log.i(TAG, "In the scanner.register");
-			
-			String argValue = "DEFAULT";
-			try {
-				argValue = args.getString(0);
-			}catch(Exception e) {
-				Log.e(TAG, "Exception getting argument");
-			}
-
-						
+								
 			if("datawedge".equalsIgnoreCase(argValue)) {
 				Log.i(TAG, "Calling DatawedgeIntentHandler");
 				intentHandler = new DatawedgeIntentHandler(cordova.getActivity().getBaseContext());
@@ -55,7 +47,6 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 				Log.i(TAG, "Calling OpticonIntentHandler");
 				intentHandler = new OpticonIntentHandler(cordova.getActivity().getBaseContext());
 			}
-			
 			
 			intentHandler.setScanCallback(new ScanCallback<BarcodeScan>() {
 				@Override
@@ -101,13 +92,7 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 				argValue = args.getString(0);
 			}catch(Exception e) {
 				Log.e(TAG, "Exception getting argument");
-			}
-			
-			if(argValue != null) {
-				Log.i(TAG, "Setting custom intent action " + argValue);
-				intentHandler.setIntentAction(argValue);
-			}
-			
+			}			
 			
 			intentHandler.start();
 		}
