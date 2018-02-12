@@ -110,9 +110,4 @@ public class OpticonIntentHandler implements ScanningIntentHandler {
         }
     };
 
-	@Override
-	public void setIntentAction(String action) {
-		this.INTENT_ACTION = action;
-	}
-
 }

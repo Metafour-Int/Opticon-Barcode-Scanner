@@ -78,7 +78,7 @@ public class DatawedgeIntentHandler implements ScanningIntentHandler {
                 return;
             }
 
-            Log.i(TAG, "Register for Datawedge intent: " + this.INTENT_ACTION);
+            Log.i(TAG, "Register for Datawedge intent: " + INTENT_ACTION);
             
             IntentFilter filter = new IntentFilter();
             filter.addCategory(Intent.CATEGORY_DEFAULT);
@@ -138,11 +138,6 @@ public class DatawedgeIntentHandler implements ScanningIntentHandler {
 	@Override
 	public boolean hasListeners() {
 		return this.scanCallback != null;
-	}
-
-	@Override
-	public void setIntentAction(String action) {
-		this.INTENT_ACTION = action;
 	}
 
 

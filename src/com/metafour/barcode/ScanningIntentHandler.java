@@ -10,8 +10,6 @@ public interface ScanningIntentHandler {
 	
 	public void setScanCallback(ScanCallback<BarcodeScan> callback);
 	
-	public void setIntentAction(String action);
-	
 	public boolean hasListeners();
 
 }
