@@ -15,6 +15,7 @@ import com.metafour.barcode.ScanningIntentHandler;
 import com.metafour.barcode.datawedge.DatawedgeIntentHandler;
 import com.metafour.barcode.opticon.OpticonIntentHandler;
 
+import android.os.Build;
 import android.util.Log;
 
 public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
@@ -34,27 +35,6 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 		
 		Log.i(TAG, "Action: " + action);
 		Log.i(TAG, "Args: " + args); //["datawedge"]
-		
-		Log.i(TAG, android.os.Build.BOARD);
-		Log.i(TAG, android.os.Build.BOOTLOADER);
-		Log.i(TAG, android.os.Build.BRAND);
-		Log.i(TAG, android.os.Build.CPU_ABI);
-		Log.i(TAG, android.os.Build.CPU_ABI2);
-		Log.i(TAG, android.os.Build.DEVICE);
-		Log.i(TAG, android.os.Build.DISPLAY);
-		Log.i(TAG, android.os.Build.FINGERPRINT);
-		Log.i(TAG, android.os.Build.HARDWARE);
-		Log.i(TAG, android.os.Build.HOST);
-		Log.i(TAG, android.os.Build.ID);
-		Log.i(TAG, android.os.Build.MANUFACTURER);
-		Log.i(TAG, android.os.Build.MODEL);
-		Log.i(TAG, android.os.Build.PRODUCT);
-		Log.i(TAG, android.os.Build.RADIO);
-		Log.i(TAG, android.os.Build.SERIAL);
-		Log.i(TAG, android.os.Build.TAGS);
-		Log.i(TAG, android.os.Build.TYPE);
-		Log.i(TAG, android.os.Build.UNKNOWN);
-		Log.i(TAG, android.os.Build.USER);
 
 		if ("scanner.register".equals(action)) {
 			
