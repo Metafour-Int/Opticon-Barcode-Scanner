@@ -77,17 +77,27 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 			});
 			
 		} else if ("scanner.unregister".equals(action)) {
-			
-			intentHandler.setScanCallback(null);
-			if (!intentHandler.hasListeners()) {
-				intentHandler.stop();
+			if(intentHandler != null){
+				intentHandler.setScanCallback(null);
+				if (!intentHandler.hasListeners()) {
+					intentHandler.stop();
+				}
+			}else{
+				Log.e("intentHandler not initialised. Please call scanner.register");
 			}
-		
 
 		} else if ("stop".equals(action)) {
-			intentHandler.stop();
+			if(intentHandler != null){
+				intentHandler.stop();
+			}else{
+				Log.e("intentHandler not initialised. Please call scanner.register");
+			}
 		} else if ("scan".equals(action)){
-			intentHandler.scan();
+			if(intentHandler != null){	
+				intentHandler.scan();
+			}else{
+				Log.e("intentHandler not initialised. Please call scanner.register");
+			}
 		}
 
 		// start plugin now if not already started
@@ -101,7 +111,11 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 				Log.e(TAG, "Exception getting argument");
 			}			
 			
-			intentHandler.start();
+			if(intentHandler != null){
+				intentHandler.start();
+			}else{
+				Log.e("intentHandler not initialised. Please call scanner.register");
+			}
 		}
 
 		return true;
