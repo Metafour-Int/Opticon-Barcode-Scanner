@@ -83,20 +83,20 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 					intentHandler.stop();
 				}
 			}else{
-				Log.e("intentHandler not initialised. Please call scanner.register");
+				Log.e(TAG, "intentHandler not initialised. Please call scanner.register");
 			}
 
 		} else if ("stop".equals(action)) {
 			if(intentHandler != null){
 				intentHandler.stop();
 			}else{
-				Log.e("intentHandler not initialised. Please call scanner.register");
+				Log.e(TAG, "intentHandler not initialised. Please call scanner.register");
 			}
 		} else if ("scan".equals(action)){
 			if(intentHandler != null){	
 				intentHandler.scan();
 			}else{
-				Log.e("intentHandler not initialised. Please call scanner.register");
+				Log.e(TAG, "intentHandler not initialised. Please call scanner.register");
 			}
 		}
 
@@ -110,11 +110,11 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 			}catch(Exception e) {
 				Log.e(TAG, "Exception getting argument");
 			}			
-			
+
 			if(intentHandler != null){
 				intentHandler.start();
 			}else{
-				Log.e("intentHandler not initialised. Please call scanner.register");
+				Log.e(TAG, "intentHandler not initialised. Please call scanner.register");
 			}
 		}
 
