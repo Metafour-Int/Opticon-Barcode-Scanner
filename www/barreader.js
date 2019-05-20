@@ -10,8 +10,8 @@ function BarcodeReader() {
 
 };
 
-BarcodeReader.prototype.start = function () {
-    exec(null, null, 'OpticonBarcodeReader', 'start', []);
+BarcodeReader.prototype.start = function (actionIntent) {
+    exec(null, null, 'OpticonBarcodeReader', 'start', [actionIntent]);
 };
 
 BarcodeReader.prototype.stop = function () {
@@ -22,8 +22,8 @@ BarcodeReader.prototype.scan = function () {
     exec(null, null, 'OpticonBarcodeReader', 'scan', []);
 };
 
-BarcodeReader.prototype.registerForBarcode = function (callback) {
-    exec(callback, null, 'OpticonBarcodeReader', 'scanner.register', []);
+BarcodeReader.prototype.registerForBarcode = function (callback, scanner) {
+    exec(callback, null, 'OpticonBarcodeReader', 'scanner.register', [scanner]);
 };
 
 BarcodeReader.prototype.unregisterBarcode = function () {
