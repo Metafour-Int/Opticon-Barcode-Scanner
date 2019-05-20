@@ -7,11 +7,13 @@ var bcs = window.barreader;
 //set-up scanner
 if (bcs) {
   bcs.start();
+
   bcs.registerForBarcode((barcode) => {
     //callback for barcode data from software button press or hardware button press
     console.log('This is a barcode object', barcode);
     console.log('This is the barcode data', barcode.data);
     console.log('This is the barcode type', barcode.type);
+
   }
 }
 
