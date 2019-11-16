@@ -6,7 +6,7 @@
     id="com.metafour.barcode"
     version="1.0.1">
       
-    <name>Metafour Barcode Scanner for Opticon</name>
+    <name>Metafour-Barcode-Scanner</name>
 
     <engines>
             <engine name="cordova-android" version=">=6"/>
@@ -23,11 +23,15 @@
             <feature name="OpticonBarcodeReader">
                 <param name="android-package" value="com.metafour.barcode.plugin.OpticonBarcodeReaderPlugin"/>
             </feature>
+            <feature name="HoneywellBarcodeScannerPlugin">
+                <param name="android-package" value="com.icsfl.rfsmart.honeywell.HoneywellScannerPlugin"/>
+            </feature>            
         </config-file>
         
-        <config-file target="AndroidManifest.xml" parent="/*/application/activity">
+        <config-file target="AndroidManifest.xml" parent="/*">
 			<permission android:protectionLevel="normal" android:name="android.permission.BCR" />
 			<uses-permission android:name="android.permission.RECEIVE_SCANNER" />
+            <uses-permission android:name="com.honeywell.decode.permission.DECODE" />
 			
 			<intent-filter>
                 <action android:name="com.metapp.datawedge.SCANNER" />
@@ -35,11 +39,13 @@
             </intent-filter>
 			
         </config-file>
-        
-        <source-file src="libs/com.oem.barcode.sdk.jar" target-dir="libs" />
+
+        <resource-file src="libs/com.oem.barcode.sdk.jar" target="libs" />
+        <resource-file src="libs/DataCollection.jar" target="libs" />
         
         <source-file src="src/com/metafour/barcode/opticon/OpticonIntentHandler.java" target-dir="src/com/metafour/barcode/opticon/OpticonIntentHandler.java"/>
         <source-file src="src/com/metafour/barcode/datawedge/DatawedgeIntentHandler.java" target-dir="src/com/metafour/barcode/datawedge/DatawedgeIntentHandler.java" />
+        <source-file src="src/com/metafour/barcode/honeywell/HoneywellHandler.java" target-dir="src/com/metafour/barcode/honeywell/HoneywellHandler.java" />
         <source-file src="src/com/metafour/barcode/BarcodeScan.java" target-dir="src/com/metafour/barcode/BarcodeScan.java" />
         <source-file src="src/com/metafour/barcode/ScanCallback.java" target-dir="src/com/metafour/barcode/ScanCallback.java" />
         <source-file src="src/com/metafour/barcode/ScanningIntentHandler.java" target-dir="src/com/metafour/barcode/ScanningIntentHandler.java" />
