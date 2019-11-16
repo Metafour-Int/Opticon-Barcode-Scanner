@@ -99,13 +99,16 @@ public class HoneywellHandler implements BarcodeReader.BarcodeListener, Scanning
     @Override
     public void stop() {
         if(barcodeReader != null) {
-            barcodeReader.release();
             try {
                 barcodeReader.softwareTrigger(false);
             } catch (ScannerNotClaimedException e) {
                 e.printStackTrace();
             } catch (ScannerUnavailableException e) {
                 e.printStackTrace();
+            } finally {
+                barcodeReader.removeBarcodeListener(HoneywellHandler.this);
+                barcodeReader.release();
+                barcodeReader = null;
             }
         }
     }
