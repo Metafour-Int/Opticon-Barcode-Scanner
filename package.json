@@ -1,6 +1,6 @@
 {
   "name": "barcodescanner",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Barcode scanner for laser devices",
   "cordova": {
     "id": "com.metafour.barcode",
