@@ -13,6 +13,7 @@ import com.metafour.barcode.BarcodeScan;
 import com.metafour.barcode.ScanCallback;
 import com.metafour.barcode.ScanningIntentHandler;
 import com.metafour.barcode.datawedge.DatawedgeIntentHandler;
+import com.metafour.barcode.honeywell.HoneywellHandler;
 import com.metafour.barcode.opticon.OpticonIntentHandler;
 
 import android.os.Build;
@@ -50,7 +51,12 @@ public class OpticonBarcodeReaderPlugin extends CordovaPlugin {
 			if("datawedge".equalsIgnoreCase(argValue)) {
 				Log.i(TAG, "Calling DatawedgeIntentHandler");
 				intentHandler = new DatawedgeIntentHandler(cordova.getActivity().getBaseContext());
-			}else {
+			}
+			else if("honeywell".equalsIgnoreCase(argValue)){
+				Log.i(TAG, "Calling HoneywellHandler");
+				intentHandler = new HoneywellHandler(cordova.getActivity().getBaseContext());
+			}
+			else {
 				Log.i(TAG, "Calling OpticonIntentHandler");
 				intentHandler = new OpticonIntentHandler(cordova.getActivity().getBaseContext());
 			}
